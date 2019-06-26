@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/devjain32/node-group-project#readme",
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.19.0",
+    "chalk": "^2.4.2"
   }
 }
