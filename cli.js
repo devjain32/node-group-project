@@ -1,19 +1,22 @@
-var prompt = process.argv[2];
-var name = process.argv[3];
-for (var i = 4 ; i < process.argv.length ; i++) {
-    name += " " + process.argv[i]
-}
+var TV = require("./tv");
 
-if (prompt === "actor") {
-    actor();
-}
-else if (prompt === "show") {
-    show();
-}
-else {
-    console.log("Sorry we don't support that! Please enter either 'actor' or 'show'")
-}
+var tv = new TV();
 
+var search = process.argv[2];
+var term = process.argv.slice(3).join(" ");
 
-console.log("Prompt: " + prompt);
-console.log("Name: " + name)
+if(!search){
+    console.log("Please search for either a show or an actor");
+    return;
+}
+if(!term){
+    console.log("Please enter a show or an actor to search for");
+    return;
+}
+if(search === "show"){
+    console.log("Searching for TV shows");
+    tv.findShow(term);
+}else{
+    console.log("Searching for actors");
+    tv.findActor(term);
+}
